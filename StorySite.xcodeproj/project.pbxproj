@@ -17,6 +17,7 @@
 		0CC13F8C1D8525D100C4D6B1 /* SSRouteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC13F8B1D8525D100C4D6B1 /* SSRouteController.m */; };
 		0CC13F8F1D8525E800C4D6B1 /* SSPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC13F8E1D8525E800C4D6B1 /* SSPlayerController.m */; };
 		0CC13F931D852FB500C4D6B1 /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC13F921D852FB500C4D6B1 /* MKMapView+ZoomLevel.m */; };
+		0CC13F971D854C9000C4D6B1 /* SSSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC13F961D854C9000C4D6B1 /* SSSegmentedControl.m */; };
 		6571D9AD864F46E989852E9C /* libPods-StorySiteTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDA39D1E00ED0B8C54E804F /* libPods-StorySiteTests.a */; };
 		DFD75DDC98ED7A978CAC3D94 /* libPods-StorySite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D5E8FE097525C0834AC90A /* libPods-StorySite.a */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,8 @@
 		0CC13F8E1D8525E800C4D6B1 /* SSPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPlayerController.m; sourceTree = "<group>"; };
 		0CC13F911D852FB500C4D6B1 /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
 		0CC13F921D852FB500C4D6B1 /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
+		0CC13F951D854C9000C4D6B1 /* SSSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSegmentedControl.h; sourceTree = "<group>"; };
+		0CC13F961D854C9000C4D6B1 /* SSSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSegmentedControl.m; sourceTree = "<group>"; };
 		1701E042DADD85E35861D841 /* Pods-StorySiteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorySiteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StorySiteTests/Pods-StorySiteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4FDE04DC12517AA940C8971F /* Pods-StorySiteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorySiteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StorySiteTests/Pods-StorySiteTests.release.xcconfig"; sourceTree = "<group>"; };
 		5BDA39D1E00ED0B8C54E804F /* libPods-StorySiteTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StorySiteTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +113,7 @@
 				0CC13F8B1D8525D100C4D6B1 /* SSRouteController.m */,
 				0CC13F8D1D8525E800C4D6B1 /* SSPlayerController.h */,
 				0CC13F8E1D8525E800C4D6B1 /* SSPlayerController.m */,
+				0CC13F941D854C8000C4D6B1 /* Controls */,
 				0CC13F901D852F9100C4D6B1 /* Categories */,
 				0CC13F641D85068600C4D6B1 /* Main.storyboard */,
 				0CC13F671D85068600C4D6B1 /* Assets.xcassets */,
@@ -144,6 +148,15 @@
 				0CC13F921D852FB500C4D6B1 /* MKMapView+ZoomLevel.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		0CC13F941D854C8000C4D6B1 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				0CC13F951D854C9000C4D6B1 /* SSSegmentedControl.h */,
+				0CC13F961D854C9000C4D6B1 /* SSSegmentedControl.m */,
+			);
+			name = Controls;
 			sourceTree = "<group>";
 		};
 		79AAF2B69AF2668D126C93E2 /* Pods */ = {
@@ -371,6 +384,7 @@
 				0CC13F5D1D85068600C4D6B1 /* main.m in Sources */,
 				0CC13F8F1D8525E800C4D6B1 /* SSPlayerController.m in Sources */,
 				0CC13F8C1D8525D100C4D6B1 /* SSRouteController.m in Sources */,
+				0CC13F971D854C9000C4D6B1 /* SSSegmentedControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
