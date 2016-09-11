@@ -6,22 +6,31 @@
 //  Copyright © 2016 StorySiteTeam. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "SSMainController.h"
+@import MapKit;
 
-@interface ViewController ()
+@interface SSMainController ()
+
+@property (nonatomic, strong) MKMapView *mapKitView;
 
 @end
 
-@implementation ViewController
+@implementation SSMainController
+
+#pragma mark - View Lifecycle Methods
 
 - (void)viewDidLoad {
+    
+    //Super
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
+#pragma mark - Memory Management
+
 - (void)didReceiveMemoryWarning {
+    
+    //Super
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
