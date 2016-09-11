@@ -40,7 +40,6 @@
 		0CC13F711D85068700C4D6B1 /* StorySiteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StorySiteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CC13F751D85068700C4D6B1 /* StorySiteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StorySiteTests.m; sourceTree = "<group>"; };
 		0CC13F771D85068700C4D6B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0CC13F821D8506E600C4D6B1 /* HarmanKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HarmanKit.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +85,6 @@
 				0CC13F5F1D85068600C4D6B1 /* AppDelegate.m */,
 				0CC13F611D85068600C4D6B1 /* ViewController.h */,
 				0CC13F621D85068600C4D6B1 /* ViewController.m */,
-				0CC13F831D8506F900C4D6B1 /* HarmanKit */,
 				0CC13F641D85068600C4D6B1 /* Main.storyboard */,
 				0CC13F671D85068600C4D6B1 /* Assets.xcassets */,
 				0CC13F691D85068600C4D6B1 /* LaunchScreen.storyboard */,
@@ -111,14 +109,6 @@
 				0CC13F771D85068700C4D6B1 /* Info.plist */,
 			);
 			path = StorySiteTests;
-			sourceTree = "<group>";
-		};
-		0CC13F831D8506F900C4D6B1 /* HarmanKit */ = {
-			isa = PBXGroup;
-			children = (
-				0CC13F821D8506E600C4D6B1 /* HarmanKit.h */,
-			);
-			name = HarmanKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -412,6 +402,7 @@
 				0CC13F7C1D85068700C4D6B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0CC13F7D1D85068700C4D6B1 /* Build configuration list for PBXNativeTarget "StorySiteTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +411,7 @@
 				0CC13F7F1D85068700C4D6B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
