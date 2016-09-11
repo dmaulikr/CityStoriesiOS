@@ -7,6 +7,7 @@ target 'StorySite' do
 
   pod 'ChameleonFramework'
   pod 'Parse'
+  pod 'pop'
 
   # Pods for StorySite
 

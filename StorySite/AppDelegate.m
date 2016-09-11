@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
+#import "SSStoryObject.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    //Register Subclass
+    [SSStoryObject registerSubclass];
+    
+    //Parse
+    [Parse setApplicationId:@"mejkrYy0lgWPkxbG8UOFWJJPQ1YYtgWJSSNKOXpE" clientKey:@"gfPhENGhsffobJCJ6dxK1ffkcQfTaqluyAeOL8b7"];
+    
+    //Return
     return YES;
 }
 

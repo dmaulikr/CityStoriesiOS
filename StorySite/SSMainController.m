@@ -10,15 +10,19 @@
 @import MapKit;
 @import CoreLocation;
 
+#import <Parse/Parse.h>
 #import <ChameleonFramework/Chameleon.h>
 #import "MKMapView+ZoomLevel.h"
+#import "SSSegmentedControl.h"
 
-@interface SSMainController () <CLLocationManagerDelegate>
+@interface SSMainController () <CLLocationManagerDelegate, SSSegmentedControlDelegate>
 
 @property (nonatomic, strong) MKMapView *mapView;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLLocation *currentUserLocation;
+
 @property (nonatomic, strong) UIView *navigationView;
+@property (nonatomic, strong) SSSegmentedControl *segmentedControl;
 
 @end
 
@@ -76,7 +80,7 @@
     //Setup Navigation View
     self.navigationView = [[UIView alloc] init];
     self.navigationView.backgroundColor = [UIColor whiteColor];
-    self.navigationView.frame = CGRectMake(16, 16, self.view.frame.size.width - 32, 88);
+    self.navigationView.frame = CGRectMake(16, 16, self.view.frame.size.width - 32, 96);
     self.navigationView.layer.shadowColor = [UIColor blackColor].CGColor;
     self.navigationView.layer.shadowOffset = CGSizeMake(0.0, 2.0);
     self.navigationView.layer.shadowOpacity = 0.3;
@@ -90,19 +94,61 @@
     title.font = [UIFont boldSystemFontOfSize:20];
     title.textColor = HexColor(@"ff4c4c");
     [self.navigationView addSubview:title];
+    
+    //Setup Segmented control
+    self.segmentedControl = [[SSSegmentedControl alloc] initWithFrame:CGRectMake(8, 44, self.navigationView.frame.size.width-16, 44) withTitles:@[@"Sites", @"Moments", @"Memories"] andIcons:nil];
+    self.segmentedControl.selectionColors = @[HexColor(@"ff4c4c"), HexColor(@"0099e5"), HexColor(@"34bf49")];
+    self.segmentedControl.backgroundColor = FlatWhite;
+    self.segmentedControl.delegate = self;
+    [self.navigationView addSubview:self.segmentedControl];
+}
+
+#pragma mark - Parse Methods
+
+- (void)fetchNearestLocations {
+    
+    //Define Parameters
+    NSDictionary *parameters = @{@"latitude" : @(self.currentUserLocation.coordinate.latitude),
+                                 @"longitude": @(fabs(self.currentUserLocation.coordinate.longitude)),
+                                 @"resultLimit" : @(3)};
+    
+    //Call Cloud Function
+    [PFCloud callFunctionInBackground:@"getNearestLocations" withParameters:parameters block:^(id  _Nullable object, NSError * _Nullable error) {
+        if (!error) {
+            NSLog(@"%@", object);
+        } else {
+            NSLog(@"Error:%@", [error localizedDescription]);
+        }
+    }];
 }
 
 #pragma mark - CLLocationManagerDelegate Methods
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
     
-    NSLog(@"Did Update Location");
+    //Check if coordinates are consistent
+    if (newLocation.horizontalAccuracy < 0) {
+        return;
+    }
     
-    //Update User Location
-    self.currentUserLocation = newLocation;
+    //Check against absolute value of the interval
+    if ([newLocation.timestamp timeIntervalSinceNow] > 30) {
+        
+        //Update User Location
+        self.currentUserLocation = newLocation;
+        
+        //Set Region
+        [self.mapView setCenterCoordinate:self.currentUserLocation.coordinate zoomLevel:13 animated:YES];
+        
+        //Fetch Nearest Locations
+        [self fetchNearestLocations];
+    }
+}
+
+#pragma mark - SSSegmentedControlDelegate Methods
+
+- (void)segmentedControl:(SSSegmentedControl *)segmentedControl didSelectSegmentAtIndex:(int)index {
     
-    //Set Region
-    [self.mapView setCenterCoordinate:self.currentUserLocation.coordinate zoomLevel:13 animated:YES];
 }
 
 #pragma mark - Memory Management
